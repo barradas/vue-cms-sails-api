@@ -128,6 +128,7 @@
   import EventDetails from './components/EventDetails'
   import MessageList from './components/MessageList'
   import Message from './components/Message'
+  import Chat from './components/Chat'
 
 export default {
   data () {
@@ -195,7 +196,8 @@ export default {
     EventList,
     EventDetails,
     Message,
-    MessageList
+    MessageList,
+    Chat
   },
   watch: {
     isloggedIn (value){

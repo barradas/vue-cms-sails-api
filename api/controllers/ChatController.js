@@ -6,10 +6,20 @@
  */
 
 module.exports = {
-	addConv: function(req, res) {
 
+
+	addConv: function(req, res) {
 		var data_from_client = req.params.all();
 
+		var connectedUsers = [];
+		console.log(sails.io.sockets.connected, 'sails.io.sockets');
+		sails.io.sockets.in('chat').clients(function(err, ids){
+			"use strict";
+			connectedUsers = ids;
+			console.log(ids);
+		})
+
+		console.log(connectedUsers, 'SAILS IO');
 		if (req.isSocket && req.method === 'POST') {
 
 			// This is the message from connected client
@@ -20,7 +30,8 @@ module.exports = {
 					Chat.publishCreate({
 						id: data_from_client.id,
 						message: data_from_client.message,
-						user: data_from_client.user
+						user: data_from_client.user,
+						//connectedUsers: connectedUsers
 					});
 				});
 		} else if (req.isSocket) {
