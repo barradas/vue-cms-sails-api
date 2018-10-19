@@ -22,7 +22,6 @@ module.exports = {
 					user: user
 				});
 			}
-
 			req.logIn(user, function(err) {
 				if (err) res.send(err);
 				return res.send({
@@ -31,8 +30,6 @@ module.exports = {
 					user: user,
 					token: jwToken.issue({id: user.id})
 				});
-
-				res.redirect('/homepage');
 			});
 		})(req, res);
 	},
@@ -56,6 +53,5 @@ module.exports = {
 	},
 	logout: function(req, res) {
 		req.logout();
-		res.redirect('/');
 	}
 };

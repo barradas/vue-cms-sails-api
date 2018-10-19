@@ -33,7 +33,7 @@ module.exports.routes = {
      ***************************************************************************/
 
     'GET /': {
-        view: 'index',
+        view: 'index'
         //policy: 'isAuthenticated'
     },
     //'GET /events': {

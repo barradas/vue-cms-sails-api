@@ -12,12 +12,7 @@ module.exports = {
 		var data_from_client = req.params.all();
 
 		var connectedUsers = [];
-		console.log(sails.io.sockets.connected, 'sails.io.sockets');
-		sails.io.sockets.in('chat').clients(function(err, ids){
-			"use strict";
-			connectedUsers = ids;
-			console.log(ids);
-		})
+		//console.log(_.size(sails.io.sockets.subs), 'sails.io.sockets');
 
 		console.log(connectedUsers, 'SAILS IO');
 		if (req.isSocket && req.method === 'POST') {
@@ -39,6 +34,15 @@ module.exports = {
 			Chat.watch(req.socket);
 			console.log('User subscribed to ' + req.socket.id);
 		}
+		///console.log(sails.sockets.subscribers());
+
+
+		//sails.io.sockets.in('chat').clients(function(err, ids){
+		//	"use strict";
+		//	connectedUsers = ids;
+		//	console.log(ids, 'users in room chat');
+		//});
+
 	}
 };
 

@@ -19,8 +19,7 @@
 			</v-flex>
 		</v-layout>
 
-		<v-layout
-		          v-for="event in events"
+		<v-layout v-for="event in events"
 		          :key="event.id"
 		          @click="goToEventDetails(event.id)">
 			<v-flex xs12 sm8 offset-sm2>
@@ -83,7 +82,6 @@
 			getEvents(query) {
 				var params = {};
 				params[query.param] = query.value;
-
 				store.dispatch('getEvents', params);
 			},
 			addEvent (event) {

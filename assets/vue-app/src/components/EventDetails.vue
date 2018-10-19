@@ -21,7 +21,7 @@
 							<h3 class="headline mb-0">How is going</h3>
 						</div>
 					</v-card-title>
-					<v-avatar v-for="visitor in event.visitors" :key="`visitor-${index}`" class="indigo">
+					<v-avatar v-for="visitor in event.visitors" :key="visitor.id" class="indigo">
 						<v-icon dark>account_circle</v-icon>
 					</v-avatar>
 					<v-card-actions>
@@ -49,31 +49,35 @@
 	import store from '../store/store';
 
 	export default {
+		props: ['eventId'],
 		data () {
 			return {
 				isUserGoing: false,
-				eventId: this.$route.params.eventId,
 			}
 		},
-		mounted() {
-			console.log(this.event.visitors, 'this');
-			console.log(this.isUserGoing, 'isUSerGP');
-			this.getEvents();
-
+		beforeRouteEnter(to, from, next){
+			console.log('route enter');
+			next((vm)=> {
+				vm.getEventData(vm.eventId);
+			});
 		},
-		updated() {
-			console.log(this.$store, 'updated');
-			console.log(this.event, 'updated');
+		beforeRouteUpdate(to, from, next) {
+			console.log('route updated');
+			store.dispatch('getEvents');
+			next((vm)=> {
+				vm.getEventData(vm.eventId);
+			});
 		},
 		methods: {
 			getEvents() {
+				console.log('get events fired');
 				store.dispatch('getEvents');
 			},
 			getActiveUserId(){
 
 			},
 			getEventData(eventId){
-				return this.$store.getters.event(eventId);
+				store.dispatch('getEvent', eventId);
 			},
 			checkUserGoing(){
 				if (_.indexOf(this.visitors, this.activeUserId) !== -1) {
@@ -106,13 +110,14 @@
 		},
 		computed: {
 			event(){
-				return this.$store.getters.event(this.$route.params.eventId);
+				console.log(this.eventId);
+				return this.$store.getters.event;
 			},
 			activeUserId(){
 				return this.$store.getters.activeUserId;
 			},
 			visitors(){
-				return this.$store.getters.event(this.$route.params.eventId).visitors;
+				return this.$store.getters.event.visitors;
 			}
 		}
 	}

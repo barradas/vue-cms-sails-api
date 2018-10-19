@@ -140,9 +140,9 @@ module.exports.sockets = {
 
 
 
-  onConnect: function(socket){
+ // onConnect: function(socket){
 
-      console.log(socket);
+      //console.log(socket);
       //  "use strict";
 	  //var connectedUsers = [];
 	  //var connectUserIds = [];
@@ -180,7 +180,7 @@ module.exports.sockets = {
       //    io.sockets.emit('message',msgObj);
       //});
 
-    }
+   // }
 
 
 

@@ -102,8 +102,7 @@
       :right="right"
       v-model="rightDrawer"
       fixed
-      app
-    >
+      app>
       <v-list>
         <v-list-tile @click="right = !right">
           <v-list-tile-action>

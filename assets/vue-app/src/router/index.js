@@ -11,6 +11,7 @@ import Chat from '@/components/Chat'
 Vue.use(Router)
 
 export default new Router({
+	mode: 'history',
 	routes: [
 		{
 			path: '/',
@@ -25,27 +26,34 @@ export default new Router({
 		{
 			path: '/dashboard',
 			name: 'Dashboard',
-			component: Dashboard
+			component: Dashboard,
+			meta: { requiresAuth: true }
 		},
 		{
 			path: '/events',
 			name: 'EventList',
-			component: EventList
+			component: EventList,
+			meta: { requiresAuth: true }
 		},
 		{
 			path: '/event/:eventId',
 			name: 'EventDetails',
-			component: EventDetails
+			component: EventDetails,
+			props: true,
+			meta: { requiresAuth: true }
+
 		},
 		{
 			path: '/messages',
 			name: 'MessageList',
-			component: MessageList
+			component: MessageList,
+			meta: { requiresAuth: true }
 		},
 		{
 			path: '/chat',
 			name: 'chat',
-			component: Chat
+			component: Chat,
+			meta: { requiresAuth: true }
 		}
 	]
 })
