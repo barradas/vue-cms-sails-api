@@ -8,8 +8,6 @@ module.exports = {
                 res.send(events);
             }
         })
-
-
     },
     findOne: function(req, res) {
         var id = req.params.id;

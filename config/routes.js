@@ -33,23 +33,13 @@ module.exports.routes = {
      ***************************************************************************/
 
     'GET /': {
-        view: 'login'
-    },
-    'GET /signup': {
-        view: 'signup'
-    },
-    '/homepage': {
-        view: 'homepage',
+        view: 'index'
         //policy: 'isAuthenticated'
     },
-    '/chatroom': {
-        view: 'chatroom',
-        policy: 'isAuthenticated'
-    },
-    'GET /events': {
-        view: 'events',
-        //policy: 'isAuthenticated'
-    },
+    //'GET /events': {
+    //    view: 'events',
+    //    //policy: 'isAuthenticated'
+    //},
 
     /***************************************************************************
      *                                                                          *

@@ -138,4 +138,53 @@ module.exports.sockets = {
   ***************************************************************************/
   // transports: ["polling", "websocket"]
 
+
+
+ // onConnect: function(socket){
+
+      //console.log(socket);
+      //  "use strict";
+	  //var connectedUsers = [];
+	  //var connectUserIds = [];
+	  //
+	  //
+      ////var numberConnections = Object.keys(io.sockets.connected).length;
+      ////console.log('user joined ');
+      ////io.emit('joined', {socketId: connectedUsers, numberOfUsers: numberConnections, connectedUsers: connectedUsers});
+	  //
+      //connectedUsers.push(socket);
+      //connectUserIds.push(socket.id);
+      ////console.log('a user connected. Nnumber of connections: ' + connectedUsers.length);
+	  //
+      //io.sockets.emit('user joined', {skId: socket.id, connectUserIds: connectUserIds});
+      //socket.emit('user connected', {skId: socket.id, connectUserIds: connectUserIds});
+	  //
+      //console.log(connectUserIds);
+      //console.log(connectUserIds.length);
+	  //
+      //socket.on('disconnect', function (data) {
+      //    connectedUsers.splice(connectedUsers.indexOf(socket), 1);
+      //    connectUserIds.splice(connectUserIds.indexOf(socket), 1);
+      //    io.sockets.emit('user left', {skId: socket.id, connectUserIds: connectUserIds});
+      //    console.log('a user disconnected. Nnumber of connections: ' + connectedUsers.length);
+      //});
+
+      //socket.on('typing', function(msgObj){
+      //    // console.log(msgObj.message, msgObj.socketId);
+      //    io.sockets.emit('typing',  'user' + msgObj.socketId + 'is typing');
+      //});
+      //
+      //
+      //socket.on('message-sent', function(msgObj){
+      //    console.log(msgObj.message);
+      //    io.sockets.emit('message',msgObj);
+      //});
+
+   // }
+
+
+
+
+
+
 };
